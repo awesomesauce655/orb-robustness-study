@@ -261,3 +261,33 @@ The evidence is becoming clearer:
 This suggests the ORB idea may be parameter-sensitive rather than structurally robust.
 
 At this stage, the project does not need endless additional filters. The next step should be to organize the results, write a clear conclusion, and decide whether one or two final robustness checks are worth running before packaging.
+
+## Subperiod Robustness Check
+
+The final robustness check tested the best simple strategy over a shorter and more recent period.
+
+The tested version was:
+
+- QQQ
+- 5-minute opening range
+- Long-only breakout
+- No stop
+- No profit target
+- End-of-day exit
+- Test period: 2022-01-01 to 2026-07-01
+
+This subperiod test remained positive. The strategy did not collapse when the 2020–2021 period was removed.
+
+However, the Sharpe ratio remained low, which means the result still should not be overstated.
+
+## Subperiod Finding
+
+The subperiod test gives the QQQ 5-minute ORB slightly more credibility because the strategy was not only dependent on the full 2020–2026 test period.
+
+However, the result still supports the broader conclusion:
+
+- QQQ 5-minute ORB has positive behavior.
+- The edge appears weak.
+- The strategy remains much weaker than QQQ buy-and-hold on raw return and Sharpe.
+- Most filters and modifications failed to improve it.
+- The strategy is sensitive to parameter and rule choices.
