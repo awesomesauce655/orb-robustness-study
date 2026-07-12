@@ -106,3 +106,62 @@ The project already shows signs of parameter sensitivity.
 The 5-minute window looks much better than the other opening windows, while stop-loss, profit target, and noon exit variants weakened performance.
 
 That means we should be careful not to overstate the result or cherry-pick the best version.
+
+## Confirmation Filter Tests
+
+After testing opening windows, stops, profit targets, and time exits, the next set of experiments tested whether confirmation filters improved QQQ 5-minute ORB performance.
+
+The goal was not to randomly add filters, but to ask whether certain market conditions improved breakout quality.
+
+## VWAP Confirmation
+
+The VWAP confirmation test required price to break above the 5-minute opening range high and also be above intraday VWAP.
+
+This produced identical results to the no-filter 5-minute ORB.
+
+This suggests the VWAP filter was redundant in this setup. If QQQ broke above the 5-minute opening range high, it was already effectively above VWAP most of the time.
+
+VWAP confirmation did not improve the strategy or meaningfully change trade selection.
+
+## 200-Day Moving Average Filter
+
+The 200-day moving average filter required QQQ to be above its 200-day moving average before taking long ORB breakouts.
+
+This filter reduced trades and drawdown, but it severely weakened return and risk-adjusted performance.
+
+This suggests that the long ORB strategy did not simply work better during broad bullish trend periods. The filter may have skipped too many profitable rebound or transitional trades.
+
+## Gap-Up Filter
+
+The gap-up filter only allowed long ORB breakouts on days when QQQ opened above the previous close.
+
+This reduced trades, fees, turnover, and drawdown compared with the no-filter version.
+
+However, it also reduced CAGR, Sharpe, Sortino, and net profit. The filter improved selectivity, but not enough to beat the simple no-filter 5-minute ORB.
+
+## Gap-Down Filter
+
+The gap-down filter only allowed long ORB breakouts on days when QQQ opened below the previous close.
+
+This performed poorly. Return was low, Sharpe and Sortino were negative, and drawdown was much higher than the gap-up version.
+
+This suggests that long ORB breakouts after weak opens were much riskier and did not provide strong evidence of a rebound edge.
+
+## Updated Intermediate Finding
+
+The simple QQQ 5-minute ORB remains the best version tested so far.
+
+Most filters reduced exposure, but none improved the strategy versus the no-filter version.
+
+The current pattern is:
+
+- VWAP confirmation was redundant.
+- 200-day moving average confirmation was too restrictive.
+- Gap-up confirmation reduced risk but also reduced return.
+- Gap-down confirmation performed poorly.
+- Stops and early exits improved risk control but reduced upside.
+- A 2R profit target hurt performance badly.
+
+The most honest conclusion so far is that QQQ 5-minute ORB has some positive behavior, but the edge is fragile. The strategy is sensitive to opening window choice, and most added filters have not improved it.
+
+This project is increasingly showing that simple ORB performance may be more parameter-sensitive than structurally robust.
