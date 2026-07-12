@@ -237,3 +237,27 @@ In Project 2, QQQ ORB performed better in high-volatility regimes than in low/me
 This is an important research insight: different strategy types can respond differently to volatility regimes.
 
 Momentum and intraday breakout strategies should not automatically use the same regime assumptions.
+
+## Short-Term Momentum Filter
+
+The 20-day momentum filter tested whether QQQ 5-minute ORB worked better after recent upward price strength.
+
+The filter only allowed long ORB trades when QQQ had positive 20-day momentum.
+
+This reduced the number of trades, but it did not improve performance. CAGR, Sharpe, Sortino, and net profit all fell versus the no-filter 5-minute ORB. Drawdown also increased.
+
+This suggests that QQQ ORB does not simply work better after recent 20-day strength.
+
+## Updated Research Direction
+
+The evidence is becoming clearer:
+
+- The simple QQQ 5-minute long-only ORB remains the best tested version.
+- Most filters reduce exposure but do not improve the strategy.
+- Short-side and long/short ORB variants performed poorly.
+- Volatility, gap, trend, VWAP, and momentum filters did not beat the simple no-filter version.
+- QQQ buy-and-hold still strongly outperforms ORB on raw return and Sharpe.
+
+This suggests the ORB idea may be parameter-sensitive rather than structurally robust.
+
+At this stage, the project does not need endless additional filters. The next step should be to organize the results, write a clear conclusion, and decide whether one or two final robustness checks are worth running before packaging.
