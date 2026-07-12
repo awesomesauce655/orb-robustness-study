@@ -193,3 +193,47 @@ QQQ ORB behavior appears asymmetric:
 - Long/short ORB performed much worse than long-only.
 
 The current evidence suggests that QQQ ORB should be studied primarily as a long-side strategy, not as a symmetric long/short breakout system.
+
+## Volatility Regime Tests
+
+The next experiments tested whether QQQ 5-minute ORB performance depended on recent volatility conditions.
+
+This connected Project 2 back to Project 1, where volatility regimes were important for momentum behavior.
+
+## High-Volatility Filter
+
+The high-volatility filter only allowed long ORB trades when 20-day realized volatility was above the 66.7th percentile of recent volatility history.
+
+This reduced trades, fees, and turnover significantly.
+
+However, it did not improve the strategy versus the no-filter 5-minute ORB. CAGR, Sharpe, Sortino, and net profit were all lower than the simple no-filter version.
+
+High-volatility days produced larger average wins, but also larger average losses. This suggests that volatility created more movement, but not necessarily better risk-adjusted breakout quality.
+
+## Low/Medium-Volatility Filter
+
+The low/medium-volatility filter did the opposite. It only allowed long ORB trades when 20-day realized volatility was not high.
+
+This produced lower drawdown, but return and risk-adjusted performance were much weaker.
+
+Low/medium-volatility ORB had negative Sharpe and Sortino, suggesting that avoiding high-volatility days removed too many of the meaningful breakout opportunities.
+
+## Volatility Finding
+
+For QQQ 5-minute ORB, high-volatility days were better than low/medium-volatility days.
+
+However, neither volatility filter beat the no-filter 5-minute ORB.
+
+This suggests that the ORB strategy may benefit from some volatility, but filtering trades strictly by volatility regime was too restrictive.
+
+## Connection to Project 1
+
+This result differs from Project 1.
+
+In Project 1, QQQ momentum performed better when avoiding high-volatility regimes.
+
+In Project 2, QQQ ORB performed better in high-volatility regimes than in low/medium-volatility regimes, although the no-filter version still performed best overall.
+
+This is an important research insight: different strategy types can respond differently to volatility regimes.
+
+Momentum and intraday breakout strategies should not automatically use the same regime assumptions.
