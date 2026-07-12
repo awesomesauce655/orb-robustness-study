@@ -165,3 +165,31 @@ The current pattern is:
 The most honest conclusion so far is that QQQ 5-minute ORB has some positive behavior, but the edge is fragile. The strategy is sensitive to opening window choice, and most added filters have not improved it.
 
 This project is increasingly showing that simple ORB performance may be more parameter-sensitive than structurally robust.
+
+## Directional Tests
+
+The next set of experiments tested whether QQQ opening range breakout behavior was stronger on the long side, short side, or both.
+
+## Short-Only ORB
+
+The short-only version entered when price broke below the 5-minute opening range low and exited at the end of the day.
+
+This performed poorly. The strategy had negative CAGR, negative Sharpe, negative Sortino, and a large drawdown.
+
+This suggests that short-side QQQ ORB breakouts were not structurally strong over the test period. The strategy likely fought the broader upward drift in QQQ.
+
+## Long/Short ORB
+
+The long/short version entered long on a break above the opening range high or short on a break below the opening range low, with only one trade per day.
+
+This also performed poorly. Adding the short side did not diversify the strategy. Instead, it diluted the positive long-side behavior and added significant drawdown.
+
+## Directional Finding
+
+QQQ ORB behavior appears asymmetric:
+
+- Long-only ORB showed weak but positive behavior.
+- Short-only ORB performed poorly.
+- Long/short ORB performed much worse than long-only.
+
+The current evidence suggests that QQQ ORB should be studied primarily as a long-side strategy, not as a symmetric long/short breakout system.
